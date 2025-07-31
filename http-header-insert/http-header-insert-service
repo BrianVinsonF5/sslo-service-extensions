@@ -39,12 +39,12 @@
               ]
             },
             "vendorInfo": {
-              "name": "F5 SSLO User Coaching Service",
+              "name": "F5 SSLO HTTP Header Insert",
               "product": "",
               "model": "",
               "version": ""
             },
-            "description": "Type: f5-sslo-user-coaching",
+            "description": "Type: f5-sslo-http-header-insert",
             "useTemplate": false,
             "serviceTemplate": "",
             "partition": "Common",
