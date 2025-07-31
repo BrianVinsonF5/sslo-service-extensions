@@ -1,0 +1,18 @@
+## SSL Orchestrator Service Extension - HTTP Header Insert
+## Version: 1.0
+## Date: 2025 July 31
+## Author: Kevin Stewart, F5 Networks
+
+when HTTP_REQUEST {
+    # Retrieve the client's TCP source port
+    set client_port [TCP::client_port]
+    
+    # Retrieve the destination (VIP) IP address
+    set dest_ip [IP::local_addr]
+    
+    # Construct the header value
+    set header_value "${client_port}-${dest_ip}"
+    
+    # Insert the header into the HTTP request
+    HTTP::header insert "X-Proxy-HTTP" $header_value
+}
