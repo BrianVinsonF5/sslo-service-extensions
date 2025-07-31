@@ -19,16 +19,6 @@ curl -sk \
 -d "${data}" \
 https://localhost/mgmt/tm/ltm/rule -o /dev/null
 
-# ## Install http-header-insert-ja4t-rule iRule
-echo "..Creating the http-header-insert-ja4t-rule iRule"
-rule=$(curl -sk https://raw.githubusercontent.com/brianvinsonf5/sslo-service-extensions/refs/heads/main/http-header-insert/http-header-insert-ja4-rule | awk '{printf "%s\\n", $0}' | sed -e 's/\"/\\"/g;s/\x27/\\'"'"'/g')
-data="{\"name\":\"http-header-insert-ja4t-rule\",\"apiAnonymous\":\"${rule}\"}"
-curl -sk \
--u ${BIGUSER} \
--H "Content-Type: application/json" \
--d "${data}" \
-https://localhost/mgmt/tm/ltm/rule -o /dev/null
-
 ## Create SSLO http-header-insert Inspection Service
 echo "..Creating the SSLO http-header-insert inspection service"
 curl -sk \
@@ -48,6 +38,5 @@ curl -sk \
 -H "Content-Type: application/json" \
 -X PATCH \
 -d '{"rules":["/Common/http-header-insert-rule"]}' \
-https://localhost/mgmt/tm/ltm/virtual/ssloS_F5_UC.app~ssloS_F5_UC-t-4 -o /dev/null
-
+https://localhost/mgmt/tm/ltm/virtual/ssloS_F5_HTTP_Header_insert.app~ssloS_F5_HTTP_Header_insert-t-4 -o /dev/null
 echo "..Done"

@@ -1,5 +1,5 @@
 {
-    "name": "sslo_ob_SERVICE_CREATE_ssloS_F5_UC",
+    "name": "sslo_ob_SERVICE_CREATE_ssloS_F5_HTTP_Header_insert",
     "inputProperties": [
       {
         "id": "f5-ssl-orchestrator-operation-context",
@@ -7,7 +7,7 @@
         "value": {
           "operationType": "CREATE",
           "deploymentType": "SERVICE",
-          "deploymentName": "ssloS_F5_UC",
+          "deploymentName": "ssloS_F5_HTTP_Header_insert",
           "deploymentReference": "",
           "partition": "Common",
           "strictness": true
@@ -18,23 +18,23 @@
         "type": "JSON",
         "value": [
           {
-            "name": "ssloS_F5_UC",
+            "name": "ssloS_F5_HTTP_Header_insert",
             "strictness": false,
             "customService": {
-              "name": "ssloS_F5_UC",
+              "name": "ssloS_F5_HTTP_Header_insert",
               "ipFamily": "ipv4",
               "serviceDownAction": "",
               "serviceType": "f5-tenant-restrictions",
               "serviceSpecific": {
-                "restrictAccessToTenant": "F5UC",
-                "restrictAccessContext": "F5UC",
+                "restrictAccessToTenant": "F5_HTTP_Header_insert",
+                "restrictAccessContext": "F5_HTTP_Header_insert",
                 "subType": "o365",
-                "name": "ssloS_F5_UC"
+                "name": "ssloS_F5_HTTP_Header_insert"
               },
               "iRuleList": [
                 {
-                  "name": "/Common/user-coaching-rule",
-                  "value": "/Common/user-coaching-rule"
+                  "name": "/Common/http-header-insert-rule",
+                  "value": "/Common/http-header-insert-rule"
                 }
               ]
             },
